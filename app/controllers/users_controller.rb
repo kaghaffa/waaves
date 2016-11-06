@@ -1,8 +1,7 @@
 class UsersController  < ApplicationController
 
-def register
+def home
 
-render("devise/registrations/new.html.erb")
 
 end
 

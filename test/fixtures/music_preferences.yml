@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  preference1: MyString
+  preference2: MyString
+  preference3: MyString
+
+two:
+  user_id: 1
+  preference1: MyString
+  preference2: MyString
+  preference3: MyString
