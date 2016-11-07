@@ -5,6 +5,10 @@ def home
 
 end
 
+def create_profile
+
+
+end
 
 
 end

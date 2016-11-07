@@ -9,8 +9,6 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-horizontal", role: "form" }) do |f| %>
         <%= devise_error_messages! %>
 
-
-
         <div class="form-group">
           <%= f.label :email, class: "col-sm-2 control-label" %>
           <div class="col-sm-10">
@@ -21,17 +19,9 @@
         <div class="form-group">
           <%= f.label :username, class: "col-sm-2 control-label" %>
           <div class="col-sm-10">
-            <%= f.username_field :username, autofocus: true, class: "form-control" %>
+            <%= f.text_field :username, class: "form-control" %>
           </div>
         </div>
-
-        <div class="form-group">
-          <%= f.label :avatar_url, class: "col-sm-2 control-label" %>
-          <div class="col-sm-10">
-            <%= f.avatar_url_field :avatar_url, autofocus: true, class: "form-control" %>
-          </div>
-        </div>
-
 
         <div class="form-group">
           <%= f.label :password, class: "col-sm-2 control-label" %>
@@ -51,6 +41,14 @@
             <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
           </div>
         </div>
+
+        <div class="form-group">
+          <%= f.label :avatar_url, class: "col-sm-2 control-label" %>
+          <div class="col-sm-10">
+            <%= f.text_field :avatar_url, class: "form-control" %>
+          </div>
+        </div>
+
         <div class="form-group">
           <div class="col-sm-10 col-sm-offset-2">
             <%= f.submit "Sign up", class: "btn btn-success btn-block" %>
@@ -61,119 +59,9 @@
           <div class="col-sm-10 col-sm-offset-2">
             <%= render "devise/shared/links" %>
           </div>
-
-          <% end %>
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-horizontal", role: "form" }) do |f| %>
-          <%= devise_error_messages! %>
-          <br>
-          <div class="form-group">
-            <p>Please tell us a little bit about yourself!:</p>
-            <p>What is your <u>favorite</u> genre of music? </p>
-            <div class="row">
-              <%= radio_button_tag(:genre1, "all") %>
-              <%= label_tag(:genre1_all, "All") %>
-            </div>
-            <div class="row">
-              <%= radio_button_tag(:genre1, "hiphop") %>
-              <%= label_tag(:genre1_hiphop, "Hip hop") %>
-            </div>
-            <div class="row"><%= radio_button_tag(:genre1, "rb") %>
-              <%= label_tag(:genre1_rb, "R&B") %>
-            </div>
-            <div class="row"><%= radio_button_tag(:genre1, "electronic") %>
-              <%= label_tag(:genre1_electronic, "Electronic") %>
-            </div>
-            <div class="row"><%= radio_button_tag(:genre1, "pop") %>
-              <%= label_tag(:genre1_pop, "Pop") %>
-            </div>
-            <div class="row"><%= radio_button_tag(:genre1, "rock") %>
-              <%= label_tag(:genre1_rock, "Rock") %>
-            </div>
-            <div class="row"><%= radio_button_tag(:genre1, "indie") %>
-              <%= label_tag(:genre1_indie, "Indie") %>
-            </div>
-            <div class="row"><%= radio_button_tag(:genre1, "acoustic") %>
-              <%= label_tag(:genre1_acoustic, "Acoustic") %>
-            </div>
-            <div class="row">Other: <input type="text" name="genre1">
-            </div>
-          </div>
-
-
-          <p>What is your <u>second</u> favorite genre of music? </p>
-          <div class="row">
-            <%= radio_button_tag(:genre2, "all") %>
-            <%= label_tag(:genre2_all, "All") %>
-          </div>
-          <div class="row">
-            <%= radio_button_tag(:genre2, "hiphop") %>
-            <%= label_tag(:genre2_hiphop, "Hip hop") %>
-          </div>
-          <div class="row"><%= radio_button_tag(:genre2, "rb") %>
-            <%= label_tag(:genre2_rb, "R&B") %>
-          </div>
-          <div class="row"><%= radio_button_tag(:genre2, "electronic") %>
-            <%= label_tag(:genre2_electronic, "Electronic") %>
-          </div>
-          <div class="row"><%= radio_button_tag(:genre2, "pop") %>
-            <%= label_tag(:genre2_pop, "Pop") %>
-          </div>
-          <div class="row"><%= radio_button_tag(:genre2, "rock") %>
-            <%= label_tag(:genre2_rock, "Rock") %>
-          </div>
-          <div class="row"><%= radio_button_tag(:genre2, "indie") %>
-            <%= label_tag(:genre2_indie, "Indie") %>
-          </div>
-          <div class="row"><%= radio_button_tag(:genre2, "acoustic") %>
-            <%= label_tag(:genre2_acoustic, "Acoustic") %>
-          </div>
-          <div class="row"><%= radio_button_tag(:genre2, "na") %>
-            <%= label_tag(:genre2_none, "na") %>
-          </div>
-          <div class="row">Other: <input type="text" name="genre2">
-          </div>
         </div>
-
-        <p>What is your <u>third</u> favorite genre of music? </p>
-        <div class="row">
-          <%= radio_button_tag(:genre3, "all") %>
-          <%= label_tag(:genre3_all, "All") %>
-        </div>
-        <div class="row">
-          <%= radio_button_tag(:genre3, "hiphop") %>
-          <%= label_tag(:genre3_hiphop, "Hip hop") %>
-        </div>
-        <div class="row"><%= radio_button_tag(:genre3, "rb") %>
-          <%= label_tag(:genre3_rb, "R&B") %>
-        </div>
-        <div class="row"><%= radio_button_tag(:genre3, "electronic") %>
-          <%= label_tag(:genre3_electronic, "Electronic") %>
-        </div>
-        <div class="row"><%= radio_button_tag(:genre3, "pop") %>
-          <%= label_tag(:genre3_pop, "Pop") %>
-        </div>
-        <div class="row"><%= radio_button_tag(:genre3, "rock") %>
-          <%= label_tag(:genre3_rock, "Rock") %>
-        </div>
-        <div class="row"><%= radio_button_tag(:genre3, "indie") %>
-          <%= label_tag(:genre3_indie, "Indie") %>
-        </div>
-        <div class="row"><%= radio_button_tag(:genre3, "acoustic") %>
-          <%= label_tag(:genre3_acoustic, "Acoustic") %>
-        </div>
-        <div class="row"><%= radio_button_tag(:genre3, "na") %>
-          <%= label_tag(:genre3_na, "Acoustic") %>
-        </div>
-        <div class="row">Other: <input type="text" name="genre2">
-        </div>
+        <% end %>
       </div>
-
     </div>
-
-
-    <% end %>
-
   </div>
-</div>
-</div>
 </div>
