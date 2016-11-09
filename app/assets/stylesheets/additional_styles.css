@@ -1,0 +1,144 @@
+body {
+  font-family: "Montserrat";
+}
+
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+}
+
+.navbar-brand {
+  font-family: "Passion One";
+  font-size: xx-large;
+}
+
+.navbar a {
+  color: white !important;
+}
+
+.waaves_header {
+  background: url("images/hero.jpg") no-repeat center center;
+  background-size: cover;
+  height: 500px;
+  padding-top: 150px;
+}
+
+
+.download-apps {
+  background: url("images/download-hero.jpg") no-repeat center center;
+  background-size: cover;
+  color: white;
+  height: 500px;
+  padding-top: 150px;
+}
+
+.store-badge {
+  width: 200px;
+}
+
+footer {
+  background-color: rgb(50, 50, 170);
+}
+
+footer h4 {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+footer li {
+  color: white;
+  margin-bottom: 10px;
+}
+
+
+.spotlight-image {
+  width: 200px;
+}
+
+.sound-bites, .why-order {
+  background-color: rgb(238, 238, 238);
+}
+
+.user-image {
+  width: 50px;
+}
+
+/* My standard vertical spacing classes */
+
+.padding-inside-top-xs {
+  padding-top: 10px;
+}
+
+.padding-inside-top-sm {
+  padding-top: 20px;
+}
+
+.padding-inside-top-md {
+  padding-top: 50px;
+}
+
+.padding-inside-top-lg {
+  padding-top: 150px;
+}
+
+.padding-inside-top-xl {
+  padding-top: 200px;
+}
+
+.padding-inside-bottom-xs {
+  padding-bottom: 10px;
+}
+
+.padding-inside-bottom-sm {
+  padding-bottom: 20px;
+}
+
+.padding-inside-bottom-md {
+  padding-bottom: 50px;
+}
+
+.padding-inside-bottom-lg {
+  padding-bottom: 150px;
+}
+
+.padding-inside-bottom-xl {
+  padding-bottom: 200px;
+}
+
+.margin-above-top-xs {
+  margin-top: 10px;
+}
+
+.margin-above-top-sm {
+  margin-top: 20px;
+}
+
+.margin-above-top-md {
+  margin-top: 50px;
+}
+
+.margin-above-top-lg {
+  margin-top: 150px;
+}
+
+.margin-below-bottom-xs {
+  margin-bottom: 10px;
+}
+
+.margin-below-bottom-sm {
+  margin-bottom: 20px;
+}
+
+.margin-below-bottom-md {
+  margin-bottom: 50px;
+}
+
+.margin-below-bottom-lg {
+  margin-bottom: 150px;
+}
+
+.margin-below-bottom-xl {
+  margin-bottom: 200px;
+}

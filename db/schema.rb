@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105015943) do
+ActiveRecord::Schema.define(version: 20161109190059) do
 
   create_table "music_preferences", force: :cascade do |t|
     t.integer  "user_id"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 20161105015943) do
     t.string   "preference3"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "genreselect"
+    t.boolean  "skillsearch_production"
+    t.boolean  "skillsearch_vocals"
+    t.boolean  "skillsearch_liveinstrumentation"
+    t.boolean  "skillsearch_mixingandmastering"
+    t.string   "search_text"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,6 +48,21 @@ ActiveRecord::Schema.define(version: 20161105015943) do
     t.string   "avatar_url"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "genre1"
+    t.string   "genre2"
+    t.string   "genre3"
+    t.integer  "goals"
+    t.integer  "experience"
+    t.string   "soundcloudurl"
+    t.string   "youtubeurl"
+    t.string   "bandcampurl"
+    t.string   "googledriveurl"
+    t.string   "otherurl"
+    t.boolean  "production"
+    t.boolean  "vocals"
+    t.boolean  "liveinstrumentation"
+    t.boolean  "mixingandmastering"
+    t.string   "similar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

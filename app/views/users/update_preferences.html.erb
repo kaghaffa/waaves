@@ -1,0 +1,166 @@
+<h1>Update your preferences</h1>
+
+<form action="http://localhost:3000/users/update_row">
+  <br>
+  <p>What is your <u>favorite</u> genre of music? </p>
+  Your current selection: <b><%= @user.genre1 %></b>
+  <div class="row">
+    <%= radio_button_tag(:genre1, "all") %>
+    <%= label_tag(:genre1_all, "All") %>
+  </div>
+  <div class="row">
+    <%= radio_button_tag(:genre1, "hiphop") %>
+    <%= label_tag(:genre1_hiphop, "Hip hop") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre1, "rb") %>
+    <%= label_tag(:genre1_rb, "R&B") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre1, "electronic") %>
+    <%= label_tag(:genre1_electronic, "Electronic") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre1, "pop") %>
+    <%= label_tag(:genre1_pop, "Pop") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre1, "rock") %>
+    <%= label_tag(:genre1_rock, "Rock") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre1, "indie") %>
+    <%= label_tag(:genre1_indie, "Indie") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre1, "acoustic") %>
+    <%= label_tag(:genre1_acoustic, "Acoustic") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre1, "other") %>
+    <%= label_tag(:genre1_other  , "Other") %><input type="text" name="genre1_other">
+  </div>
+
+
+  <p>What is your <u>second</u> favorite genre of music? </p>
+    Your current selection: <b><%= @user.genre2 %></b>
+  <div class="row">
+    <%= radio_button_tag(:genre2, "all") %>
+    <%= label_tag(:genre2_all, "All") %>
+  </div>
+  <div class="row">
+    <%= radio_button_tag(:genre2, "hiphop") %>
+    <%= label_tag(:genre2_hiphop, "Hip hop") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre2, "rb") %>
+    <%= label_tag(:genre2_rb, "R&B") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre2, "electronic") %>
+    <%= label_tag(:genre2_electronic, "Electronic") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre2, "pop") %>
+    <%= label_tag(:genre2_pop, "Pop") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre2, "rock") %>
+    <%= label_tag(:genre2_rock, "Rock") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre2, "indie") %>
+    <%= label_tag(:genre2_indie, "Indie") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre2, "acoustic") %>
+    <%= label_tag(:genre2_acoustic, "Acoustic") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre2, "na") %>
+    <%= label_tag(:genre2_none, "N/A") %>
+    <div class="row"><%= radio_button_tag(:genre2, "other") %>
+      <%= label_tag(:genre2_other  , "Other") %><input type="text" name="genre2_other">
+    </div>
+
+  <p>What is your <u>third</u> favorite genre of music? </p>
+    Your current selection: <b><%= @user.genre3 %></b>
+  <div class="row">
+    <%= radio_button_tag(:genre3, "all") %>
+    <%= label_tag(:genre3_all, "All") %>
+  </div>
+  <div class="row">
+    <%= radio_button_tag(:genre3, "hiphop") %>
+    <%= label_tag(:genre3_hiphop, "Hip hop") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre3, "rb") %>
+    <%= label_tag(:genre3_rb, "R&B") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre3, "electronic") %>
+    <%= label_tag(:genre3_electronic, "Electronic") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre3, "pop") %>
+    <%= label_tag(:genre3_pop, "Pop") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre3, "rock") %>
+    <%= label_tag(:genre3_rock, "Rock") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre3, "indie") %>
+    <%= label_tag(:genre3_indie, "Indie") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre3, "acoustic") %>
+    <%= label_tag(:genre3_acoustic, "Acoustic") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre3, "na") %>
+    <%= label_tag(:genre3_na, "N/A") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genre3, "other") %>
+    <%= label_tag(:genre3_other  , "Other") %><input type="text" name="genre3_other">
+  </div>
+  <br>
+
+
+  <p>What are your goals in terms of making music?</p>
+    Your current selection: <b><%= @user.goals %></b>
+  <div class="row"><%= radio_button_tag(:goals, 1) %>
+    <%= label_tag(:goals_1  , "1 - I make music purely as a hobby") %>
+  </div>
+
+  <div class="row"><%= radio_button_tag(:goals, 2) %>
+    <%= label_tag(:goals_2  , "2") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:goals, 3) %>
+    <%= label_tag(:goals_3  , "3 - Mostly for fun, but a part of me wants to be professional") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:goals, 4) %>
+    <%= label_tag(:goals_4  , "4") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:goals, 5) %>
+    <%= label_tag(:goals_5  , "5 - I want to be a music professionally") %>
+  </div>
+
+  <p>Which of the following parts of music-making do you know how to do?</p>
+  <div class="row">
+    <%= check_box_tag(:skill_production) %>
+  <%= label_tag(:skill_production, "Production") %>
+  </div>
+  <div class="row">
+    <%= check_box_tag(:skill_vocals) %>
+  <%= label_tag(:skill_vocals, "Vocals") %>
+  </div>
+  <div class="row">
+    <%= check_box_tag(:skill_liveinstrumentation) %>
+  <%= label_tag(:skill_liveinstrumentation, "Live Instrumentation") %>
+  </div>
+  <div class="row">
+    <%= check_box_tag(:skill_mixingandmastering) %>
+  <%= label_tag(:skill_mixingandmastering, "Mixing and Mastering")%>
+  </div>
+
+  <h1>Show off some your past work!</h1>
+  <div class="row">
+    Soundcloud URL: <input type="text" name="soundcloudurl">
+  </div>
+  <div class="row">
+    YouTube URL: <input type="text" name="youtubeurl">
+  </div>
+  <div class="row">
+    Bandcamp URL: <input type="text" name="bandcampurl">
+  </div>
+  <div class="row">
+    GoogleDrive URL: <input type="text" name="googledriveurl">
+  </div>
+  <div class="row">
+    Other URL: <input type="text" name="otherurl">
+  </div>
+
+
+  <br><br>
+
+  <button>Submit</button>

@@ -1,0 +1,60 @@
+<h1>Tell us a little bit about what you're looking for</h1>
+
+
+<form action="http://localhost:3000/search/matchmaking">
+  <p>Please choose a genre:</p>
+      <div class="row">
+<%= radio_button_tag(:genreselect, "all") %>
+    <%= label_tag(:genreselect_all, "All") %>
+  </div>
+  <div class="row">
+    <%= radio_button_tag(:genreselect, "hiphop") %>
+    <%= label_tag(:genreselect_hiphop, "Hip hop") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genreselect, "rb") %>
+    <%= label_tag(:genreselect_rb, "R&B") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genreselect, "electronic") %>
+    <%= label_tag(:genreselect_electronic, "Electronic") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genreselect, "pop") %>
+    <%= label_tag(:genreselect_pop, "Pop") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genreselect, "rock") %>
+    <%= label_tag(:genreselect_rock, "Rock") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genreselect, "indie") %>
+    <%= label_tag(:genreselect_indie, "Indie") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genreselect, "acoustic") %>
+    <%= label_tag(:genreselect_acoustic, "Acoustic") %>
+  </div>
+  <div class="row"><%= radio_button_tag(:genreselect, "other") %>
+    <%= label_tag(:genreselect_other  , "Other") %><input type="text" name="genreselect_other">
+  </div>
+<br><br>
+  <p>Which skillset are you looking for in a collaborator?</p>
+  <div class="row">
+    <%= check_box_tag(:skillsearch_production) %>
+  <%= label_tag(:skillsearch_production, "Production") %>
+  </div>
+  <div class="row">
+    <%= check_box_tag(:skillsearch_vocals) %>
+  <%= label_tag(:skillsearch_vocals, "Vocals") %>
+  </div>
+  <div class="row">
+    <%= check_box_tag(:skillsearch_liveinstrumentation) %>
+  <%= label_tag(:skillsearch_liveinstrumentation, "Live Instrumentation") %>
+  </div>
+  <div class="row">
+    <%= check_box_tag(:skillsearch_mixingandmastering) %>
+  <%= label_tag(:skillsearch_mixingandmastering, "Mixing and Mastering")%>
+  </div>
+<br>
+<div class="row">
+<p>What else would you like people to  know? (i.e. beats per minute, style, etc.)</p>
+  <input type="text_field" name="search_text"></input>
+</div>
+<br>
+  <button>Search</button>
+  <br><br>
