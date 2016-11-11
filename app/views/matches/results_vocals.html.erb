@@ -1,0 +1,66 @@
+<br>
+<h1>Here are some collaborators we recommend for you!</h1>
+<br><br>
+<div class="row">
+    <div class="col-md-12  col-xs-12">
+      <div class="btn-group btn-group-justified">
+        <a href="/search/results/production/<%= @request.id %>" class="btn btn-block btn-primary">
+          Producers
+        </a>
+
+        <a href="/search/results/vocals/<%= @request.id %>" class="btn btn-block btn-info">
+          Vocalists
+        </a>
+
+        <a href="/search/results/instruments/<%= @request.id %>" class="btn btn-block btn-primary">
+          Live instrumentalists
+        </a>
+
+        <a href="/search/results/mixandmaster/<%= @request.id %>" class="btn btn-block btn-info">
+          Mixing and mastering engineers
+        </a>
+
+
+      </div>
+    </div>
+  </div>
+<br><br>
+
+<div class="row">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Username</th>
+        <th>Favorite genres</th>
+        <th>Soundcloud link</th>
+        <th>YouTube link</th>
+        <th>Similar artists</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <% @results.each do |user| %>
+      <tr>
+        <td><img src="<%= user.avatar_url %>" width="100"></td>
+        <td><%= user.username %></td>
+        <td><%= user.genre1 %>, <%= user.genre2 %>, <%= user.genre3 %></td>
+        <td><%= user.soundcloudurl %></td>
+        <td><%= user.youtubeurl %></td>
+        <td><%= user.similar %></td>
+        <td>
+          <a href="/" class="btn btn-primary">
+            Accept
+          </a>
+        </td>
+        <td>
+          <a href="/" class="btn btn-danger">
+            Mark as irrelevant
+          </a>
+        </td>
+      </tr>
+      <% end %>

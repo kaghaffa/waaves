@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   #Matching
   get('/search', {:controller => 'matches', :action => 'search_form'})
-  get('/search/results/:id', {:controller => 'matches', :action => 'results'})
+  get('/search/results/production/:id', {:controller => 'matches', :action => 'results_production'})
+  get('/search/results/vocals/:id', {:controller => 'matches', :action => 'results_vocals'})
+  get('/search/results/instruments/:id', {:controller => 'matches', :action => 'results_instruments'})
+  get('/search/results/mixandmaster/:id', {:controller => 'matches', :action => 'results_mixandmaster'})
   get('/search/matchmaking', {:controller => 'matches', :action => 'add_row'})
 end
