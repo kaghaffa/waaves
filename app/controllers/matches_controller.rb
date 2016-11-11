@@ -22,6 +22,8 @@ end
 def results
     @currentrequest = Request.find(params[:id])
 
+    @results = User.where(vocals:true)
+
 
 end
 

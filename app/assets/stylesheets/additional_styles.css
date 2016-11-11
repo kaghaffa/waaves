@@ -17,12 +17,16 @@ h1, h2, h3, h4 {
 }
 
 .waaves_header {
-  background: url("images/hero.jpg") no-repeat center center;
+  background: url("/images/hero.png") no-repeat center center;
   background-size: cover;
   height: 500px;
   padding-top: 150px;
 }
 
+.why_waaves {
+  height: 500px;
+  padding-top: 150px;
+}
 
 .download-apps {
   background: url("images/download-hero.jpg") no-repeat center center;
