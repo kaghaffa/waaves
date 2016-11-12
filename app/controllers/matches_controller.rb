@@ -21,10 +21,8 @@ end
 
 def results_production
     @request = Request.find(params[:id])
-
-    @results = User.where(production:true)
     
-
+    @results = User.where(vocals:true)
 
 end
 

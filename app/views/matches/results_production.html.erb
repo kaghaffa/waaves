@@ -44,7 +44,8 @@
 
     <tbody>
 
-      <% @results.each do |user| %>
+
+      <% User.sorted_by_relevance.each do |user| %>
       <tr>
         <td><img src="<%= user.avatar_url %>" width="100"></td>
         <td><%= user.username %></td>
