@@ -36,6 +36,11 @@ h1, h2, h3, h4 {
   padding-top: 150px;
 }
 
+.navbar-brand {
+  font-family: "Passion One";
+  font-size: xx-large;
+}
+
 .store-badge {
   width: 200px;
 }

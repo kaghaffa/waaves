@@ -44,6 +44,7 @@
 
     <tbody>
 
+      <% if @request.skillsearch_mixingandmastering %>
       <% @results.each do |user| %>
       <tr>
         <td><img src="<%= user.avatar_url %>" width="100"></td>
@@ -64,3 +65,4 @@
         </td>
       </tr>
       <% end %>
+<% end %>

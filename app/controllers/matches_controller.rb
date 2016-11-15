@@ -26,7 +26,8 @@ class MatchesController  < ApplicationController
     requester_experience = User.find(@request.user_id).experience
 
 
-    @results = User.where(production:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
+    @results = User.limit(5).where(production:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
+
 
 
 
@@ -39,7 +40,7 @@ class MatchesController  < ApplicationController
     requester_goal = User.find(@request.user_id).goals
     requester_experience = User.find(@request.user_id).experience
 
-        @results = User.where(vocals:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
+        @results = User.limit(5).where(vocals:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
 
 
   end
@@ -51,7 +52,7 @@ class MatchesController  < ApplicationController
     requester_goal = User.find(@request.user_id).goals
     requester_experience = User.find(@request.user_id).experience
 
-    @results = User.where(liveinstrumentation:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
+    @results = User.limit(5).where(liveinstrumentation:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
 
 
   end
@@ -63,7 +64,7 @@ class MatchesController  < ApplicationController
     requester_goal = User.find(@request.user_id).goals
     requester_experience = User.find(@request.user_id).experience
 
-    @results = User.where(mixingandmastering:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
+    @results = User.limit(5).where(mixingandmastering:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
 
 
   end
