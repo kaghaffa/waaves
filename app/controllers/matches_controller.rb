@@ -18,19 +18,16 @@ class MatchesController  < ApplicationController
     redirect_to("/search/results/production/#{r.id}")
   end
 
-
   def results_production
     @request = Request.find(params[:id])
 
-    if genre1 = "Hip Hop"
-      @genrepoints = 10
-    elsif
-      @genrepoints = 0
-    end
+    requested_genre = @request.genreselect
+    requester_goal = User.find(@request.user_id).goals
+    requester_experience = User.find(@request.user_id).experience
 
 
-  @results =  User.where(production:true).sort_by(&@genrepoints)
-  #@results =  User.where(production:true).sort_by(&:genrepoints).reverse
+    @results = User.where(production:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
+
 
 
   end
@@ -38,7 +35,11 @@ class MatchesController  < ApplicationController
   def results_vocals
     @request = Request.find(params[:id])
 
-    @results = User.where(vocals:true)
+    requested_genre = @request.genreselect
+    requester_goal = User.find(@request.user_id).goals
+    requester_experience = User.find(@request.user_id).experience
+
+        @results = User.where(vocals:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
 
 
   end
@@ -46,7 +47,11 @@ class MatchesController  < ApplicationController
   def results_instruments
     @request = Request.find(params[:id])
 
-    @results = User.where(liveinstrumentation:true)
+    requested_genre = @request.genreselect
+    requester_goal = User.find(@request.user_id).goals
+    requester_experience = User.find(@request.user_id).experience
+
+    @results = User.where(liveinstrumentation:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
 
 
   end
@@ -54,7 +59,11 @@ class MatchesController  < ApplicationController
   def results_mixandmaster
     @request = Request.find(params[:id])
 
-    @results = User.where(mixingandmastering:true)
+    requested_genre = @request.genreselect
+    requester_goal = User.find(@request.user_id).goals
+    requester_experience = User.find(@request.user_id).experience
+
+    @results = User.where(mixingandmastering:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
 
 
   end
