@@ -36,4 +36,17 @@ class UsersController  < ApplicationController
 
   end
 
+  def show_profile
+    @user = User.find(params[:id])
+  end
+
+  def show_collabs
+    @requests = Request.where(:user_id => params[:id])
+
+    @selectedusers = Selecteduser.where(:selected_user_id => params[:id])
+
+
+  end
+
+
 end

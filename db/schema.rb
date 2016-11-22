@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109190059) do
+ActiveRecord::Schema.define(version: 20161117195349) do
+
+  create_table "chats", force: :cascade do |t|
+    t.text     "text"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "request_id"
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+  end
 
   create_table "music_preferences", force: :cascade do |t|
     t.integer  "user_id"
@@ -31,6 +40,14 @@ ActiveRecord::Schema.define(version: 20161109190059) do
     t.string   "search_text"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+  end
+
+  create_table "selectedusers", force: :cascade do |t|
+    t.integer  "selected_user_id"
+    t.integer  "request_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "desired_skill"
   end
 
   create_table "users", force: :cascade do |t|

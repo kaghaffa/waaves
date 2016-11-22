@@ -1,0 +1,78 @@
+<div class = "row">
+  <h2>Collabs you've started</h2>
+</div>
+<div class="row">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Collaborators</th>
+        <th>Last updated</th>
+        <th>Last message</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @requests.each do |request| %>
+      <% if request.chats.count > 0 %>
+      <tr>
+        <td>
+          <% request.selectedusers.each do |selecteduser| %>
+          <%= User.find(selecteduser.selected_user_id).username %><br>
+          <% end %>
+        </td>
+        <td><%= time_ago_in_words(request.chats.last.created_at) %> ago </td>
+        <td><%= request.chats.last.text %></td>
+        <td>
+          <form action="http://localhost:3000/chat/<%= request.id %>">
+            <button>Go to collab</button>
+          </td>
+        </form>
+      </tr>
+      <% else %>
+      <% end %>
+      <% end %>
+
+    </tbody>
+  </table>
+</div>
+
+<div class = "row">
+  <h2>Collabs you've been invited to</h2>
+</div>
+<div class="row">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Collaborators</th>
+        <th>Last updated</th>
+        <th>Last message</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @selectedusers.each do |selecteduser| %>
+      <tr>
+        <td>
+          <% Selecteduser.where(:request_id => selecteduser.request_id).each do |selecteduser2| %>
+          <% if selecteduser2.selected_user_id != current_user.id %>
+          <%= User.find(selecteduser2.selected_user_id).username %><br>
+          <% else %>
+          <% end %>
+          <% end %><br>
+          <%= User.find(Request.find(selecteduser.request_id).user_id).username %>
+        </td>
+        <td><%= Request.find(selecteduser.request_id).chats.last.created_at %></td>
+        <td><%= Request.find(selecteduser.request_id).chats.last.text %></td>
+        <td>
+          <form action="http://localhost:3000/chat/<%= selecteduser.request_id %>">
+            <button>Go to collab</button>
+          </td>
+        </form>
+      </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+</div>

@@ -2,28 +2,28 @@
 <h1>Here are some collaborators we recommend for you!</h1>
 <br><br>
 <div class="row">
-    <div class="col-md-12  col-xs-12">
-      <div class="btn-group btn-group-justified">
-        <a href="/search/results/production/<%= @request.id %>" class="btn btn-block btn-primary">
-          Producers
-        </a>
+  <div class="col-md-12  col-xs-12">
+    <div class="btn-group btn-group-justified">
+      <a href="/search/results/production/<%= @request.id %>" class="btn btn-block btn-primary">
+        Producers
+      </a>
 
-        <a href="/search/results/vocals/<%= @request.id %>" class="btn btn-block btn-info">
-          Vocalists
-        </a>
+      <a href="/search/results/vocals/<%= @request.id %>" class="btn btn-block btn-info">
+        Vocalists
+      </a>
 
-        <a href="/search/results/instruments/<%= @request.id %>" class="btn btn-block btn-primary">
-          Live instrumentalists
-        </a>
+      <a href="/search/results/instruments/<%= @request.id %>" class="btn btn-block btn-primary">
+        Live instrumentalists
+      </a>
 
-        <a href="/search/results/mixandmaster/<%= @request.id %>" class="btn btn-block btn-info">
-          Mixing and mastering engineers
-        </a>
+      <a href="/search/results/mixandmaster/<%= @request.id %>" class="btn btn-block btn-info">
+        Mixing and mastering engineers
+      </a>
 
 
-      </div>
     </div>
   </div>
+</div>
 <br><br>
 
 <div class="row">
@@ -44,7 +44,7 @@
 
     <tbody>
 
-<% if @request.skillsearch_production %>
+      <% if @request.skillsearch_production %>
       <% @results.each do |user| %>
       <tr>
         <td><img src="<%= user.avatar_url %>" width="100"></td>
@@ -54,17 +54,17 @@
         <td><%= user.youtubeurl %></td>
         <td><%= user.similar %></td>
         <td>
-          <a href="/" class="btn btn-primary">
-            Accept
-          </a>
-        </td>
+          <form action="http://localhost:3000/accept_user/<%= @request.id %>/<%= user.id %>/<%= @desired_skill %>">
+            <button>Accept</button>
+          </td>
+        </form>
+        <form>
         <td>
-          <a href="/" class="btn btn-danger">
-            Mark as irrelevant
-          </a>
+          <button>Mark as irrelevant</button>
         </td>
+      </form>
       </tr>
       <% end %>
 
-<% else %>
-<% end %>
+      <% else %>
+      <% end %>

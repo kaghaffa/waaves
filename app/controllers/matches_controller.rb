@@ -15,8 +15,17 @@ class MatchesController  < ApplicationController
     r.search_text = params[:search_text]
     r.save
 
-    redirect_to("/search/results/production/#{r.id}")
+    if r.skillsearch_production
+      redirect_to("/search/results/production/#{r.id}")
+    elsif r.skillsearch_vocals
+      redirect_to("/search/results/vocals/#{r.id}")
+    elsif r.skillsearch_liveinstrumentation
+      redirect_to("/search/results/instruments/#{r.id}")
+    elsif r.skillsearch_mixingandmastering
+      redirect_to("/search/results/mixandmaster/#{r.id}")
+    end
   end
+  
 
   def results_production
     @request = Request.find(params[:id])
@@ -28,8 +37,7 @@ class MatchesController  < ApplicationController
 
     @results = User.limit(5).where(production:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
 
-
-
+    @desired_skill = "Production"
 
   end
 
@@ -40,8 +48,9 @@ class MatchesController  < ApplicationController
     requester_goal = User.find(@request.user_id).goals
     requester_experience = User.find(@request.user_id).experience
 
-        @results = User.limit(5).where(vocals:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
+    @results = User.limit(5).where(vocals:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
 
+    @desired_skill = "Vocals"
 
   end
 
@@ -54,6 +63,7 @@ class MatchesController  < ApplicationController
 
     @results = User.limit(5).where(liveinstrumentation:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
 
+    @desired_skill = "Live Instrumentation"
 
   end
 
@@ -66,6 +76,7 @@ class MatchesController  < ApplicationController
 
     @results = User.limit(5).where(mixingandmastering:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
 
+    @desired_skill = "Mixing and Mastering"
 
   end
 

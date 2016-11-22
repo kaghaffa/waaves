@@ -1,0 +1,33 @@
+<h3>Chat between <%= @requester_name %>
+
+  <% @selected_users.each do |selecteduser| %>
+  and <%= User.find(selecteduser.selected_user_id).username %>
+
+  <% end %>
+
+</h3>
+<br><br><br>
+
+<div class="jumbotron">
+  <div class="chatbox">
+    <%  @chats.each do |chat| %>
+    <div class="media">
+      <div class="media-left">
+        <img src="<%= User.find(chat.sender_id).avatar_url %>"  class="user-image img-circle">
+      </div>
+      <div class="media-body">
+        <%= User.find(chat.sender_id).username %><small> <%= time_ago_in_words(chat.created_at) %> ago</small><br>
+        <%= chat.text %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <div class = "chatsubmit">
+    <form action = "http://localhost:3000/new_chat/<%= @request.id %>">
+      <input type="textarea" name="text"></input>
+      <button>Send</button>
+
+    </form>
+  </div>
+</div>

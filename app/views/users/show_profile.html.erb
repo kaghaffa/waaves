@@ -1,0 +1,14 @@
+<h1>Profile:</h1>
+
+<b>Favorite genre: </b><%= @user.genre1 %><br>
+<b>Second favorite genre: </b><%= @user.genre2 %><br>
+<b>Third favorite genre: </b><%= @user.genre3 %><br><br>
+
+<b>Your goals: </b><%= @user.goals %><br>
+
+<b>Years of experience: </b><%= @user.experience %><br><br>
+
+<% if current_user.id == @user.id %>
+<a href="http://localhost:3000/users/edit">Edit profile</a>
+<% else %>
+<% end %>

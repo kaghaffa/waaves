@@ -8,6 +8,8 @@ class User < ApplicationRecord
   #validates :genre2, :presence => true
   #validates :genre3, :presence => true
 
+has_many :requests
+
 
 
 
