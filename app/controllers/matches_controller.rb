@@ -12,7 +12,6 @@ class MatchesController  < ApplicationController
     r.skillsearch_vocals = params[:skillsearch_vocals]
     r.skillsearch_liveinstrumentation = params[:skillsearch_liveinstrumentation]
     r.skillsearch_mixingandmastering = params[:skillsearch_mixingandmastering]
-    r.search_text = params[:search_text]
     r.save
 
     if r.skillsearch_production
@@ -25,7 +24,7 @@ class MatchesController  < ApplicationController
       redirect_to("/search/results/mixandmaster/#{r.id}")
     end
   end
-  
+
 
   def results_production
     @request = Request.find(params[:id])

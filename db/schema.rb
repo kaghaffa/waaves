@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117195349) do
+ActiveRecord::Schema.define(version: 20161126152653) do
+
+  create_table "Comments", force: :cascade do |t|
+    t.integer  "completedcollab_id"
+    t.text     "comment"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "Likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "completedcollab_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "chatfiles", force: :cascade do |t|
+    t.integer  "request_id"
+    t.text     "file_comment"
+    t.string   "file"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "sender_id"
+  end
 
   create_table "chats", force: :cascade do |t|
     t.text     "text"
@@ -19,6 +43,14 @@ ActiveRecord::Schema.define(version: 20161117195349) do
     t.integer  "request_id"
     t.integer  "sender_id"
     t.integer  "receiver_id"
+  end
+
+  create_table "completedcollabs", force: :cascade do |t|
+    t.integer  "request_id"
+    t.string   "file"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "music_preferences", force: :cascade do |t|
@@ -37,9 +69,9 @@ ActiveRecord::Schema.define(version: 20161117195349) do
     t.boolean  "skillsearch_vocals"
     t.boolean  "skillsearch_liveinstrumentation"
     t.boolean  "skillsearch_mixingandmastering"
-    t.string   "search_text"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "final_song_title"
   end
 
   create_table "selectedusers", force: :cascade do |t|
