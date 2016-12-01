@@ -7,57 +7,63 @@
 </h3>
 
 <div class="col-sm-6">
-<div class="jumbotron">
-  <div class="chatbox">
-    <%  @chats.each do |chat| %>
-    <div class="media">
-      <div class="media-left">
-        <img src="<%= User.find(chat.sender_id).avatar_url %>"  class="user-image img-circle">
+  <div class="jumbotron">
+    <div class="chatbox">
+      <%  @chats.each do |chat| %>
+      <div class="media">
+        <div class="media-left">
+          <img src="<%= User.find(chat.sender_id).avatar_url %>"  class="user-image img-circle">
+        </div>
+        <div class="media-body">
+          <%= User.find(chat.sender_id).username %><small> <%= time_ago_in_words(chat.created_at) %> ago</small><br>
+          <%= chat.text %>
+        </div>
       </div>
-      <div class="media-body">
-        <%= User.find(chat.sender_id).username %><small> <%= time_ago_in_words(chat.created_at) %> ago</small><br>
-        <%= chat.text %>
-      </div>
+      <% end %>
     </div>
+
+    <div class = "chatsubmit">
+      <form action = "http://localhost:3000/new_chat/<%= @request.id %>">
+        <input type="textarea" name="text" class="form-control">
+        <button class="btn btn-success btn-default">Send</button>
+      </div>
+    </form><br>
+
+    <form action="/send_file" method="post" enctype="multipart/form-data">
+      <input type="file" class="form-control" id="file" name="file">
+      <input type="text" class="form-control" id="file_comment" name="file_comment">
+      <input type="hidden" class="form-control" id="request_id" name="request_id" value="<%= @request_id %>">
+      <button class="btn btn-success btn-default">Send file</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+
+<div class="col-sm-6">
+  <b>Uploaded files:</b></br><br>
+  <% @files.each do |file| %>
+  <%= User.find(file.sender_id).username %><small> <%= time_ago_in_words(file.created_at) %> ago</small><br>
+  <audio id="song" class="audio_player" controls="false" preload="true">
+    <source src="<%= file.file.url %>" type="audio/mpeg">
+    </audio>
+    <a href="/download_file/ <%= file.id %>">Download</a><br>
+    <%= file.file_comment %>
     <% end %>
   </div>
 
-  <div class = "chatsubmit">
-    <form action = "http://localhost:3000/new_chat/<%= @request.id %>">
-      <input type="textarea" name="text" class="form-control">
-      <button class="btn btn-success btn-default">Send</button>
-    </div>
-  </form><br>
 
-<form action="/send_file" method="post" enctype="multipart/form-data">
-  <input type="file" class="form-control" id="file" name="file">
-  <input type="text" class="form-control" id="file_comment" name="file_comment">
-  <input type="hidden" class="form-control" id="request_id" name="request_id" value="<%= @request_id %>">
-  <button class="btn btn-success btn-default">Send file</button>
 
-</form>
+  <div class="col-sm-6 col-sm-offset-3">
+    <form action="/add_song" method="post" enctype="multipart/form-data">
+      <b>Upload final song:</b><br>
+      Song title:  <input type="text" class="form-control" id="title" name="title">
+      Song file:  <input type="file" class="form-control" id="file" name="file">
 
-</div>
-</div>
+      <input type="hidden" class="form-control" id="request_id" name="request_id" value="<%= @request_id %>">
+      <button class="btn btn-success btn-default">Post song</button>
 
-<div class="col-sm-6">
-<% @files.each do |file| %>
-  <%= User.find(file.sender_id).username %><small> <%= time_ago_in_words(file.created_at) %> ago</small><br>
-<audio id="song" class="audio_player" controls="false" preload="true">
-  <source src="<%= file.file.url %>" type="audio/mpeg">
-</audio>
-<a href="/download_file/ <%= file.id %>">Download</a><br>
-<%= file.file_comment %>
-<% end %>
-</div>
-
-<div class="col-sm-6 col-sm-offset-3">
-<form action="/add_song" method="post" enctype="multipart/form-data">
-Song title:  <input type="text" class="form-control" id="title" name="title">
-Song file:  <input type="file" class="form-control" id="file" name="file">
-
-  <input type="hidden" class="form-control" id="request_id" name="request_id" value="<%= @request_id %>">
-  <button class="btn btn-success btn-default">Post song</button>
-
-</form><br><br>
-</div>
+    </form><br><br>
+  </div>

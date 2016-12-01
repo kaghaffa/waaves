@@ -135,28 +135,11 @@ class ChatsController  < ApplicationController
   end
 
   def download_file
-  #  @file = Chatfile.find(params[:id])
-  #  @request_id = 24
-    #send_file(@file.file.path,
-    #:type => @file.file.content_type,
-    #:disposition => 'attachment',
-    #:url_based_filename => true)
-
-    #send_file '@'
-    #send_file(http://local3000/public/uploads/directory/Screen_Shot_2016-11-23_at_11.43.42_PM.png)
-
-
-  #  data = open("#{@file.file.url}")
-  #  send_data data.read, filename: "@file.file.file.filename", type: "@file.file.content_type", stream: 'true', buffer_size: '4096'
-
-
-  #  @chatfile = Chatfile.find(70)
-  #   send_file("@chatfile.file.url")
-
-
-#  @chatfile = Chatfile.last
-#  redirect_to @chatfile.file.url
-
+    @file = Chatfile.find(params[:id])
+    send_file(@file.file.path,
+    :type => @file.file.content_type,
+    :disposition => 'attachment',
+    :url_based_filename => true)
 
   end
 
