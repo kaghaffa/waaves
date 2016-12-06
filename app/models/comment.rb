@@ -1,6 +1,5 @@
 class Comment < ApplicationRecord
-
-    belongs_to :user
-    belongs_to :completedcollab
+  belongs_to :user
+  belongs_to :completedcollab
 
 end

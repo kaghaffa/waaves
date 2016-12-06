@@ -10,22 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126152653) do
-
-  create_table "Comments", force: :cascade do |t|
-    t.integer  "completedcollab_id"
-    t.text     "comment"
-    t.integer  "user_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
-  create_table "Likes", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "completedcollab_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
+ActiveRecord::Schema.define(version: 20161206021750) do
 
   create_table "chatfiles", force: :cascade do |t|
     t.integer  "request_id"
@@ -45,12 +30,27 @@ ActiveRecord::Schema.define(version: 20161126152653) do
     t.integer  "receiver_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer  "completedcollab_id"
+    t.text     "comment"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
   create_table "completedcollabs", force: :cascade do |t|
     t.integer  "request_id"
     t.string   "file"
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "completedcollab_id"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "music_preferences", force: :cascade do |t|
