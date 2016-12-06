@@ -1,6 +1,16 @@
+<!-- Validation failure messages -->
+<% if @profile.errors.any? %>
+  <% @profile.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
 <h1>Tell us more about yourself!</h1>
 
-<form action="http://localhost:3000/users/update_row">
+<form action="http://localhost:3000/users/new_row">
   <br>
   <p>Please tell us a little bit about yourself so we can provide the best collaboration matches to you!:</p>
   <p>What is your <u>favorite</u> genre of music? </p>

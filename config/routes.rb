@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   #Registration
   get('/', {:controller => 'users', :action => 'home'})
   get('/users/create_profile/', {:controller => 'users', :action => 'create_profile'})
-  get('/users/update_row', {:controller => 'users', :action => 'update_row'})
+  get('/users/new_row', {:controller => 'users', :action => 'new_row'})
   get('/users/edit/preferences', {:controller => 'users', :action => 'update_preferences'})
   get('/users/profile/:id', {:controller => 'users', :action => 'show_profile'})
   get('/collabs/:id', {:controller => 'users', :action => 'show_collabs'})
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
 
   #Chat
-  get('/accept_user/:request_id/:requestee_id/:desired_skill', {:controller => 'chats', :action => 'accept_user'})
+  post('/accept_user', {:controller => 'chats', :action => 'accept_user'})
   get('/chat/:request_id', {:controller => 'chats', :action => 'show'})
   get('/new_chat/:request_id', {:controller => 'chats', :action => 'new_chat'})
   post('/send_file', {:controller => 'chats', :action => 'new_file'})

@@ -8,10 +8,12 @@ class UsersController  < ApplicationController
   end
 
   def create_profile
+    @profile = Profile.new
   end
 
-  def update_row
-    u = User.find(current_user.id)
+  def new_row
+    u = Profile.new
+    u.user_id = current_user.id
     u.genre1 = params[:genre1]
     u.genre2 = params[:genre2]
     u.genre3 = params[:genre3]
@@ -27,9 +29,17 @@ class UsersController  < ApplicationController
     u.liveinstrumentation = params[:skill_liveinstrumentation]
     u.mixingandmastering = params[:skill_mixingandmastering]
     u.similar = params[:similar]
-    u.save
+        u.avatar_url = User.find(current_user.id).avatar_url
+@profile = u
+    save_status = u.save
 
-    redirect_to("http://localhost:3000/")
+        if save_status == true
+          redirect_to("http://localhost:3000/", :notice => "Profile created successfully.")
+        else
+          render("/users/create_profile/")
+        end
+
+
 
   end
 

@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  genre1: MyString
+  genre2: MyString
+  genre3: MyString
+  goals: 1
+  experience: 1
+  souncloudurl: MyString
+  youtubeurl: MyString
+  bandcampurl: MyString
+  googledriveurl: MyString
+  otherurl: MyString
+  production: false
+  vocals: false
+  liveinstrumentation: false
+  mixingandmastering: MyString
+  similar: MyString
+
+two:
+  user_id: 1
+  genre1: MyString
+  genre2: MyString
+  genre3: MyString
+  goals: 1
+  experience: 1
+  souncloudurl: MyString
+  youtubeurl: MyString
+  bandcampurl: MyString
+  googledriveurl: MyString
+  otherurl: MyString
+  production: false
+  vocals: false
+  liveinstrumentation: false
+  mixingandmastering: MyString
+  similar: MyString

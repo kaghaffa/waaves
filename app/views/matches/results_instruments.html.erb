@@ -54,7 +54,10 @@
         <td><%= user.youtubeurl %></td>
         <td><%= user.similar %></td>
         <td>
-          <form action="http://localhost:3000/accept_user/<%= @request.id %>/<%= user.id %>/<%= @desired_skill %>">
+          <form action="http://localhost:3000/accept_user" method="post">
+            <input type="hidden" name="request_id" value="<%= @request.id %>">
+            <input type="hidden" name="requestee_id" value="<%= user.user_id %>">
+            <input type="hidden" name="desired_skill" value="<%= @desired_skill %>">
             <button>Accept</button>
           </td>
         </form>

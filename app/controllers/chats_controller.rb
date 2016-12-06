@@ -9,22 +9,15 @@ class ChatsController  < ApplicationController
     @requester_name = User.find(@requester_id).username
     @request_id = params[:request_id]
 
-    #@requester_id = @request.user_id
-    #@requestee_id = @request.selected_user
-
-    #@requester_name = User.find(@requester_id).username
-    #@requestee_name = User.find(@requestee_id).username
 
     @sender_id = current_user.id
 
     @chats = @request.chats
 
-    @selected_users =  Selecteduser.where(:request_id => @request_id)
+    @selected_users =  @request.selectedusers
 
     @files = Chatfile.where(:request_id => @request_id)
 
-    @chatfile = Chatfile.find(71)
-    @chatfile_name = @chatfile.file.path.split("/").last
 
   end
 
