@@ -27,7 +27,7 @@ class MatchesController  < ApplicationController
         redirect_to("/search/results/mixandmaster/#{r.id}")
       end
     else
-      render("/search")
+      render("/matches/search_form.html.erb")
     end
 
 
@@ -41,7 +41,7 @@ class MatchesController  < ApplicationController
     requester_goal = Profile.find_by(:user_id => current_user.id).goals
     requester_experience = Profile.find_by(:user_id=>current_user.id).experience
 
-    @results = Profile.limit(5).where(production:true).sort_by {|profile| profile.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
+    @results = Profile.where(production:true).sort_by {|profile| profile.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse.take(5)
 
     @desired_skill = "Production"
 
@@ -54,9 +54,11 @@ class MatchesController  < ApplicationController
     requester_goal = Profile.find_by(:user_id => current_user.id).goals
     requester_experience = Profile.find_by(:user_id=>current_user.id).experience
 
-    @results = Profile.limit(5).where(vocals:true).sort_by {|profile| profile.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
+    @results = Profile.where(vocals:true).sort_by {|user| user.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse.take(5)
+
 
     @desired_skill = "Vocals"
+
 
   end
 
@@ -67,7 +69,7 @@ class MatchesController  < ApplicationController
     requester_goal = Profile.find_by(:user_id => current_user.id).goals
     requester_experience = Profile.find_by(:user_id=>current_user.id).experience
 
-    @results = Profile.limit(5).where(liveinstrumentation:true).sort_by {|profile| profile.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
+    @results = Profile.where(liveinstrumentation:true).sort_by {|profile| profile.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse.take(5)
 
     @desired_skill = "Live Instrumentation"
 
@@ -80,7 +82,7 @@ class MatchesController  < ApplicationController
     requester_goal = Profile.find_by(:user_id => current_user.id).goals
     requester_experience = Profile.find_by(:user_id=>current_user.id).experience
 
-    @results = Profile.limit(5).where(mixingandmastering:true).sort_by {|profile| profile.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse
+    @results = Profile.where(mixingandmastering:true).sort_by {|profile| profile.relevancescore(requested_genre, requester_goal, requester_experience) }.reverse.take(5)
 
     @desired_skill = "Mixing and Mastering"
 

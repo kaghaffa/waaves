@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get('/search/results/vocals/:id', {:controller => 'matches', :action => 'results_vocals'})
   get('/search/results/instruments/:id', {:controller => 'matches', :action => 'results_instruments'})
   get('/search/results/mixandmaster/:id', {:controller => 'matches', :action => 'results_mixandmaster'})
-  get('/search/matchmaking', {:controller => 'matches', :action => 'add_row'})
+  post('/search/matchmaking', {:controller => 'matches', :action => 'add_row'})
 
 
   #Chat

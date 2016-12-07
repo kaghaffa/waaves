@@ -59,7 +59,7 @@ class ChatsController  < ApplicationController
         c.sender_id = current_user.id
         c.save
       end
-    elsif s.desired_skill == 'Live Instruments'
+    elsif s.desired_skill == 'Live Instrumentation'
       if Request.find(@request_id).skillsearch_mixingandmastering
         redirect_to("/search/results/mixandmaster/#{@request_id}")
       else
@@ -152,7 +152,7 @@ c.save
 end
 
 def showcase
-  @songs = Completedcollab.all
+  @songs = Completedcollab.order(:created_at).all.reverse
 
 
 end

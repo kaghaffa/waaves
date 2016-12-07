@@ -5,4 +5,7 @@ class Completedcollab < ApplicationRecord
 has_many :comments
 has_many :likes
 
+  validates :title, :presence => true
+
+
 end

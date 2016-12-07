@@ -1,19 +1,20 @@
 <!-- Validation failure messages -->
 <% if @request.errors.any? %>
-  <% @request.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @request.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 <h1>Tell us a little bit about what you're looking for</h1>
 
 
-<form action="http://localhost:3000/search/matchmaking">
+<form action="http://localhost:3000/search/matchmaking" method="post">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
   <p>Please choose a genre:</p>
-      <div class="row">
-<%= radio_button_tag(:genreselect, "all") %>
+  <div class="row">
+    <%= radio_button_tag(:genreselect, "all") %>
     <%= label_tag(:genreselect_all, "All") %>
   </div>
   <div class="row">
@@ -41,25 +42,25 @@
   <div class="row"><%= radio_button_tag(:genreselect, "other") %>
     <%= label_tag(:genreselect_other  , "Other") %><input type="text" name="genreselect_other">
   </div>
-<br><br>
+  <br><br>
   <p>Which skillset are you looking for in a collaborator?</p>
   <div class="row">
     <%= check_box_tag(:skillsearch_production) %>
-  <%= label_tag(:skillsearch_production, "Production") %>
+    <%= label_tag(:skillsearch_production, "Production") %>
   </div>
   <div class="row">
     <%= check_box_tag(:skillsearch_vocals) %>
-  <%= label_tag(:skillsearch_vocals, "Vocals") %>
+    <%= label_tag(:skillsearch_vocals, "Vocals") %>
   </div>
   <div class="row">
     <%= check_box_tag(:skillsearch_liveinstrumentation) %>
-  <%= label_tag(:skillsearch_liveinstrumentation, "Live Instrumentation") %>
+    <%= label_tag(:skillsearch_liveinstrumentation, "Live Instrumentation") %>
   </div>
   <div class="row">
     <%= check_box_tag(:skillsearch_mixingandmastering) %>
-  <%= label_tag(:skillsearch_mixingandmastering, "Mixing and Mastering")%>
+    <%= label_tag(:skillsearch_mixingandmastering, "Mixing and Mastering")%>
   </div>
-<br>
+  <br>
 
   <button>Search</button>
   <br><br>

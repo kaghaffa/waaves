@@ -5,25 +5,23 @@ class Profile < ApplicationRecord
   validates :goals, :presence => true
   validates :experience, :presence => true
 
+  validate :skill_checked
+
+
+  def skill_checked
+    if production==nil && vocals == nil && liveinstrumentation == nil && mixingandmastering == nil
+      errors.add(:skills, "need to check at least one skill")
+    end
+  end
+
+
   def genrepoints(requested_genre = nil)
     if self.genre1 == requested_genre
       10
     elsif self.genre2 == requested_genre
-      9
+      7
     elsif self.genre3 == requested_genre
-      8
-    elsif (self.genre1 == "pop" || self.genre1 == "hiphop" ||self.genre1 == "rb" || self.genre1 == "electronic")   && (requested_genre== "pop" || requested_genre=="hiphop" || requested_genre=="rb" || requested_genre=="electronic")
       5
-    elsif (self.genre2 == "pop" || self.genre2 == "hiphop" ||self.genre2 == "rb" || self.genre2 == "electronic")   && (requested_genre== "pop" || requested_genre=="hiphop" || requested_genre=="rb" || requested_genre=="electronic")
-      4
-    elsif (self.genre3 == "pop" || self.genre3 == "hiphop" ||self.genre3 == "rb" || self.genre3 == "electronic")   && (requested_genre== "pop" || requested_genre=="hiphop" || requested_genre=="rb" || requested_genre=="electronic")
-      3
-    elsif (self.genre1 == "indie" || self.genre1 == "acoustic")   && (requested_genre== "indie" || requested_genre=="acoustic")
-      5
-    elsif (self.genre2 == "indie" || self.genre2 == "acoustic")   && (requested_genre== "indie" || requested_genre=="acoustic")
-      4
-    elsif (self.genre3 == "indie" || self.genre3 == "acoustic")   && (requested_genre== "indie" || requested_genre=="acoustic")
-      3
     else
       0
     end

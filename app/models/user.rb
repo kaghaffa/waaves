@@ -7,9 +7,6 @@ class User < ApplicationRecord
   validates :username, :presence => true, :uniqueness =>true
 
 
-  #validates :genre1, :presence => true
-  #validates :genre2, :presence => true
-  #validates :genre3, :presence => true
 
   has_many :requests
   has_one :profile

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206184158) do
+ActiveRecord::Schema.define(version: 20161207161626) do
 
   create_table "chatfiles", force: :cascade do |t|
     t.integer  "request_id"
@@ -77,12 +77,12 @@ ActiveRecord::Schema.define(version: 20161206184158) do
     t.boolean  "production"
     t.boolean  "vocals"
     t.boolean  "liveinstrumentation"
-    t.string   "mixingandmastering"
     t.string   "similar"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "avatar_url"
     t.string   "username"
+    t.boolean  "mixingandmastering"
   end
 
   create_table "requests", force: :cascade do |t|
