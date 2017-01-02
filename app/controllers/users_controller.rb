@@ -44,12 +44,12 @@ skip_before_action :authenticate_user!
   end
 
   def update_preferences
-    @user = User.find(current_user.id)
+    @user = Profile.find_by(:user_id => current_user.id)
 
   end
 
   def show_profile
-    @user = User.find(params[:id])
+    @user = Profile.find_by(:user_id => params[:id])
   end
 
   def show_collabs
