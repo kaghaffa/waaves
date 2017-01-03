@@ -4,11 +4,11 @@
 <div class="row">
   <div class="col-md-12  col-xs-12">
     <div class="btn-group btn-group-justified">
-      <a href="/search/results/production/<%= @request.id %>" class="btn btn-block btn-primary">
+      <a href="/search/results/production/<%= @request.id %>" class="btn btn-block btn-default">
         Producers
       </a>
 
-      <a href="/search/results/vocals/<%= @request.id %>" class="btn btn-block btn-info">
+      <a href="/search/results/vocals/<%= @request.id %>" class="btn btn-block btn-default">
         Vocalists
       </a>
 
@@ -16,7 +16,7 @@
         Live instrumentalists
       </a>
 
-      <a href="/search/results/mixandmaster/<%= @request.id %>" class="btn btn-block btn-info">
+      <a href="/search/results/mixandmaster/<%= @request.id %>" class="btn btn-block btn-default">
         Mixing and mastering engineers
       </a>
 
@@ -26,6 +26,7 @@
 </div>
 <br><br>
 
+
 <div class="row">
   <table class="table table-hover">
     <thead>
@@ -33,8 +34,7 @@
         <th></th>
         <th>Username</th>
         <th>Favorite genres</th>
-        <th>Soundcloud link</th>
-        <th>YouTube link</th>
+        <th>Soundcloud link(s)</th>
         <th>Similar artists</th>
         <th></th>
         <th></th>
@@ -50,15 +50,27 @@
         <td><img src="<%= user.avatar_url %>" width="100"></td>
         <td><%= user.username %></td>
         <td><%= user.genre1 %>, <%= user.genre2 %>, <%= user.genre3 %></td>
-        <td><%= user.soundcloudurl %></td>
-        <td><%= user.youtubeurl %></td>
+        <td>
+          <% if user.url1 != nil %>
+          <a href="<%= user.url1 %>">Track 1 </a>
+          <% else %>
+          <% end %>
+          <% if user.url2 != nil %>
+          ,<a href="<%= user.url2 %>">Track 2 </a>
+          <% else %>
+          <% end %>
+          <% if user.url1 != nil %>
+          ,<a href="<%= user.url3 %>">Track 3 </a>
+          <% else %>
+          <% end %>
+        </td>
         <td><%= user.similar %></td>
         <td>
           <form action="http://localhost:3000/accept_user" method="post">
             <input type="hidden" name="request_id" value="<%= @request.id %>">
             <input type="hidden" name="requestee_id" value="<%= user.user_id %>">
             <input type="hidden" name="desired_skill" value="<%= @desired_skill %>">
-            <button>Accept</button>
+            <button class="btn btn-success">Accept</button>
           </td>
         </form>
       </tr>

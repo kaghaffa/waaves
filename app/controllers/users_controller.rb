@@ -1,6 +1,6 @@
 class UsersController  < ApplicationController
 
-skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!
 
   def home
 
@@ -19,25 +19,23 @@ skip_before_action :authenticate_user!
     u.genre3 = params[:genre3]
     u.goals = params[:goals]
     u.experience = params[:experience]
-    u.soundcloudurl = params[:soundcloudurl]
-    u.youtubeurl = params[:youtubeurl]
-    u.bandcampurl = params[:bandcampurl]
-    u.googledriveurl = params[:googledriveurl]
-    u.otherurl = params[:otherurl]
+    u.url1 = params[:url1]
+    u.url2 = params[:url2]
+    u.url3 = params[:url3]
     u.production = params[:skill_production]
     u.vocals = params[:skill_vocals]
     u.liveinstrumentation = params[:skill_liveinstrumentation]
     u.mixingandmastering = params[:skill_mixingandmastering]
     u.similar = params[:similar]
-        u.avatar_url = User.find(current_user.id).avatar_url
-@profile = u
+    u.avatar_url = User.find(current_user.id).avatar_url
+    @profile = u
     save_status = u.save
 
-        if save_status == true
-          redirect_to("http://localhost:3000/", :notice => "Profile created successfully.")
-        else
-          render("/users/create_profile/")
-        end
+    if save_status == true
+      redirect_to("http://localhost:3000/", :notice => "Profile created successfully.")
+    else
+      render("/users/create_profile/")
+    end
 
 
 

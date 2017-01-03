@@ -45,6 +45,7 @@ class MatchesController  < ApplicationController
 
     @desired_skill = "Production"
 
+    @controller = params[:controller]
   end
 
   def results_vocals
@@ -58,6 +59,8 @@ class MatchesController  < ApplicationController
 
 
     @desired_skill = "Vocals"
+
+
 
 
   end

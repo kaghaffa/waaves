@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207161626) do
+ActiveRecord::Schema.define(version: 20170103143020) do
 
   create_table "chatfiles", force: :cascade do |t|
     t.integer  "request_id"
@@ -83,6 +83,9 @@ ActiveRecord::Schema.define(version: 20161207161626) do
     t.string   "avatar_url"
     t.string   "username"
     t.boolean  "mixingandmastering"
+    t.string   "url1"
+    t.string   "url2"
+    t.string   "url3"
   end
 
   create_table "requests", force: :cascade do |t|
