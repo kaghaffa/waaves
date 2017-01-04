@@ -91,7 +91,7 @@ class ChatsController  < ApplicationController
 
     @request_id = params[:request_id]
 
-    redirect_to("http://localhost:3000/chat/#{@request_id}")
+    redirect_to("/chat/#{@request_id}")
 
   end
 

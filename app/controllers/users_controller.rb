@@ -32,7 +32,7 @@ class UsersController  < ApplicationController
     save_status = u.save
 
     if save_status == true
-      redirect_to("http://localhost:3000/", :notice => "Profile created successfully.")
+      redirect_to("/", :notice => "Profile created successfully.")
     else
       render("/users/create_profile/")
     end
