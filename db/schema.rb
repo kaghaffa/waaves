@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103143020) do
+ActiveRecord::Schema.define(version: 20170104171022) do
 
   create_table "chatfiles", force: :cascade do |t|
     t.integer  "request_id"
@@ -69,11 +69,6 @@ ActiveRecord::Schema.define(version: 20170103143020) do
     t.string   "genre3"
     t.integer  "goals"
     t.integer  "experience"
-    t.string   "soundcloudurl"
-    t.string   "youtubeurl"
-    t.string   "bandcampurl"
-    t.string   "googledriveurl"
-    t.string   "otherurl"
     t.boolean  "production"
     t.boolean  "vocals"
     t.boolean  "liveinstrumentation"
