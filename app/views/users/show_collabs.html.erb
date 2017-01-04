@@ -24,7 +24,7 @@
         <td><%= time_ago_in_words(request.chats.last.created_at) %> ago </td>
         <td><%= request.chats.last.text %></td>
         <td>
-          <form action="http://localhost:3000/chat/<%= request.id %>">
+          <form action="/chat/<%= request.id %>">
             <button>Go to collab</button>
           </td>
         </form>
@@ -66,7 +66,7 @@
         <td><%= Request.find(selecteduser.request_id).chats.last.created_at %></td>
         <td><%= Request.find(selecteduser.request_id).chats.last.text %></td>
         <td>
-          <form action="http://localhost:3000/chat/<%= selecteduser.request_id %>">
+          <form action="/chat/<%= selecteduser.request_id %>">
             <button>Go to collab</button>
           </td>
         </form>
