@@ -122,7 +122,7 @@ class ChatsController  < ApplicationController
     @request_id = params[:request_id]
     @chatfile_file_url = c.file_url
 
-    redirect_to("http://localhost:3000/chat/#{@request_id}")
+    redirect_to("/chat/#{@request_id}")
 
 
   end
