@@ -66,7 +66,7 @@
         </td>
         <td><%= user.similar %></td>
         <td>
-          <form action="http://localhost:3000/accept_user" method="post">
+          <form action="/accept_user" method="post">
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
             <input type="hidden" name="request_id" value="<%= @request.id %>">
             <input type="hidden" name="requestee_id" value="<%= user.user_id %>">
