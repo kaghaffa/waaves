@@ -22,10 +22,6 @@ header {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 
-  // #header-content {
-  //     margin: 10px;
-  // }
-
   .container {
     height: 100%;
     -webkit-backface-visibility: hidden;
@@ -63,7 +59,8 @@ header {
   }
 }
 
-body.scrolled header {
+body.scrolled header,
+header.visible {
   background-color: rgba(255,255,255,0.92);
   box-shadow: 0 1px 5px rgba(0,0,0,0.13);
 

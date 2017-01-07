@@ -312,6 +312,10 @@ i {
   background: linear-gradient(200deg, rgba(254, 195, 101, 0.8) 0%, rgba(232, 120, 130, 0.6) 29%, rgba(216, 69, 150, 0.4) 80%);
   text-align: center;
 
+  h2, p {
+    color: white;
+  }
+
   h2 {
     margin-bottom: 50px;
   }
