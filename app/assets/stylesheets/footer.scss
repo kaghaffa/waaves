@@ -1,0 +1,15 @@
+.footer {
+  height: 80px;
+  background-color: #F6F9FC;
+
+  .copy {
+    text-align: center;
+
+    p {
+      line-height: 80px;
+      font-size: 12px;
+      color: #979495;
+      opacity: 0.6;
+    }
+  }
+}

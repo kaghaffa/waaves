@@ -1,0 +1,81 @@
+header {
+  z-index: 4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: block;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  line-height: 80px;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  // #header-content {
+  //     margin: 10px;
+  // }
+
+  .container {
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.27);
+  }
+
+  .navbar {
+    height: 80px;
+    background-color: transparent;
+
+    .navbar-brand {
+      font-family: "Montserrat";
+      font-size: xx-large;
+      color: white;
+    }
+
+    .navbar-nav {
+      margin-top: 10px;
+
+      a {
+        color: white;
+        text-transform: uppercase;
+        font-weight: 600;
+
+        &:hover {
+          background: none;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+body.scrolled header {
+  background-color: rgba(255,255,255,0.92);
+  box-shadow: 0 1px 5px rgba(0,0,0,0.13);
+
+  .navbar {
+    a {
+      color: #6cceec;
+
+      &:hover {
+        background: none;
+        opacity: 0.8;
+        color: #b8e4f7;
+      }
+    }
+  }
+}
