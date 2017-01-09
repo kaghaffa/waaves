@@ -1,68 +1,101 @@
-<br>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h2 class="panel-title">Sign up</h2>
-      </div>
-
-      <div class="panel-body">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-horizontal", role: "form" }) do |f| %>
-        <%= devise_error_messages! %>
-
-        <div class="form-group">
-          <%= f.label :email, class: "col-sm-2 control-label" %>
-          <div class="col-sm-10">
-            <%= f.email_field :email, autofocus: true, class: "form-control" %>
+<div id="auth-form">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="auth-wrapper">
+        <div class="auth-form-wrapper">
+          <div class="auth-header">
+            <h3>Create your account</h3>
           </div>
+
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form", role: "form" }) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <%= f.label :email, class: "control-label" %>
+                <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: 'you@email.com' %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <%= f.label :username, class: "control-label" %>
+                <%= f.text_field :username, class: "form-control", placeholder: 'Choose a username' %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <%= f.label :password, class: "control-label" %>
+                <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: 'Password (at least 6 characters)' %>
+                <p class="help-block">
+                  <% if @validatable %>
+                  (<%= @minimum_password_length %> characters minimum)
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <%= f.label :password_confirmation, class: "control-label" %>
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: 'Confirm your password' %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <%= f.label :avatar_url, class: "control-label" %>
+                <%= f.text_field :avatar_url, class: "form-control", placeholder: 'AVATAR URL PLACEHOLDER HERE' %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <%= f.submit "Sign up", class: "btn btn-success btn-block" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group text-center">
+                <%= render "devise/shared/links" %>
+              </div>
+            </div>
+          </div>
+          <% end %>
         </div>
 
-        <div class="form-group">
-          <%= f.label :username, class: "col-sm-2 control-label" %>
-          <div class="col-sm-10">
-            <%= f.text_field :username, class: "form-control" %>
+        <div class="auth-info">
+          <div class="info">
+            <h2>Get matched</h2>
+              <p>Just tell us what you’re looking for and we’ll find the best match for you.</p>
           </div>
-        </div>
 
-        <div class="form-group">
-          <%= f.label :password, class: "col-sm-2 control-label" %>
-          <div class="col-sm-10">
-            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-            <p class="help-block">
-              <% if @validatable %>
-              (<%= @minimum_password_length %> characters minimum)
-              <% end %>
-            </p>
+          <div class="info">
+            <h2>Engage with community</h2>
+              <p>Share your music with the community to get fans, feedback, and more collaborators!</p>
           </div>
-        </div>
 
-        <div class="form-group">
-          <%= f.label :password_confirmation, class: "col-sm-2 control-label" %>
-          <div class="col-sm-10">
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+          <div class="info">
+            <h2>Get coached</h2>
+              <p>Get free access to seasoned recording professionals to make the most of your collaboration.</p>
           </div>
         </div>
-
-        <div class="form-group">
-          <%= f.label :avatar_url, class: "col-sm-2 control-label" %>
-          <div class="col-sm-10">
-            <%= f.text_field :avatar_url, class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-10 col-sm-offset-2">
-            <%= f.submit "Sign up", class: "btn btn-success btn-block" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-10 col-sm-offset-2">
-            <%= render "devise/shared/links" %>
-          </div>
-        </div>
-        <% end %>
-      </div>
       </div>
     </div>
   </div>
+</div>

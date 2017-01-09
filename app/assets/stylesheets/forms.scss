@@ -1,0 +1,14 @@
+form {
+  .form-group {
+    label {
+      font-weight: 400;
+    }
+
+    input {
+      &.form-control {
+        border: 1px solid #efefef;
+        background-color: #FAFBFC;
+      }
+    }
+  }
+}
